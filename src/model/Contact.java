@@ -14,6 +14,7 @@ public class Contact implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private ContactPK id;
 
 	private String status;
