@@ -12,11 +12,13 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="mediastrip_user")
 @NamedQuery(name="User.findAll", query="SELECT u FROM User u")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 
 	private Boolean administrator;
@@ -110,11 +112,11 @@ public class User implements Serializable {
 		this.mail = mail;
 	}
 
-	public String getPassword() {
+	public String getMotdepasse() {
 		return this.password;
 	}
 
-	public void setPassword(String password) {
+	public void setMotdepasse(String password) {
 		this.password = password;
 	}
 
@@ -216,23 +218,23 @@ public class User implements Serializable {
 		return media;
 	}
 
-	public List<Room> getSalles() {
+	public List<Room> getRooms() {
 		return this.rooms;
 	}
 
-	public void setSalles(List<Room> rooms) {
+	public void setRooms(List<Room> rooms) {
 		this.rooms = rooms;
 	}
 
-	public Room addSalle(Room room) {
-		getSalles().add(room);
+	public Room addRoom(Room room) {
+		getRooms().add(room);
 		room.setUser(this);
 
 		return room;
 	}
 
-	public Room removeSalle(Room room) {
-		getSalles().remove(room);
+	public Room removeRoom(Room room) {
+		getRooms().remove(room);
 		room.setUser(null);
 
 		return room;

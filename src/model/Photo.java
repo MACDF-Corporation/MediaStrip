@@ -21,6 +21,7 @@ public class Photo implements Serializable {
 	private String description;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 
 	private Integer publisher;

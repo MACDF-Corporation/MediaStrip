@@ -12,6 +12,9 @@ import java.sql.Timestamp;
 @Entity
 @NamedQuery(name="File.findAll", query="SELECT f FROM File f")
 public class File implements Serializable {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer id;
 	private static final long serialVersionUID = 1L;
 
 	private String filePath;
@@ -19,8 +22,6 @@ public class File implements Serializable {
 	private Timestamp createdAt;
 
 	private String description;
-	@Id
-	private Integer id;
 
 	private Integer publisher;
 
